@@ -12,7 +12,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 (function(name, context, definition){
   window.SwtNotify = definition({}, (window.jQuery || window.$));
 })('swtnotify', this, function(SwtNotify, $){
-  console.log(this);
   SwtNotify.VERSION = '0.0.1';
   SwtNotify.$ = $;
 
@@ -134,7 +133,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     _findDuplication: function(comparable){
       var $texts = this._$container.find('.swt-data-text');
       var $returnObj = null;
-      $texts.each(function(int, element){
+      $texts.each(function(i, element){
         var $element = $(element);
         var text = $element.text();
         if(text === comparable) {
