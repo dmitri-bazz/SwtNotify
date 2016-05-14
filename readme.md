@@ -47,7 +47,7 @@ You may also pass an options object to Notifier when initializing. Here are the 
 
 The `Notifier` object instance has 3 public methods that can be used.
 
-`Notifier.notify(level, body)` takes an html string or element as a `body` for it's parameter, and a `level` string as it's second parameter. The default supported levels are `success`, `error`, and `warning`.
+`Notifier.notify(body, level)` takes an html string or element as a `body` for it's parameter, and a `level` string as it's second parameter. The default supported levels are `success`, `error`, and `warning`.
 
 `Notifier.clear(id)`, takes a notification id as it's only parameter and removes that notification.
 
