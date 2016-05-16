@@ -42,6 +42,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     this.que = [];
     this._clearingQue = false;
 
+    if(this.$el.is('body')){
+      this._$container.css('position', 'fixed');
+    }
+
     this._$el.prepend(this._$container);
   };
 
