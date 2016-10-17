@@ -12,10 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 (function(name, context, definition){
   window.SwtNotify = definition({}, (window.jQuery || window.$));
 })('swtnotify', this, function(SwtNotify, $){
-  SwtNotify.VERSION = '0.0.1';
+  SwtNotify.VERSION = '1.0.1';
   SwtNotify.$ = $;
 
-  SwtNotify.Notifier = function(options){
+  SwtNotify.Notifier = function(options, jquery){
     var defaults = {
       el : 'body', //Element which to add the object to
       template : '<table class="swt-notification"><td class="swt-notify-count"><span class="swt-value swt-data-count">3</span></td><td class="swt-notify-body swt-data-text"></td></table>',
@@ -26,8 +26,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       closeTemplate: '<td class="swt-close"><span class="swt-close-icon">x</span></td>',
       closeEvent: null, //You may pass an additional funciton to be called whenever a notification is closed. First argument is the object sleciton
       maxHeight: 350
-    },
-    opts = this._overrideDefaulOptions(defaults, options || {});
+    };
+
+    //Allow to manually specify jquery target for when jquery is loaded under a seperate namespace, multiple versions of jquery are used, or when avoiding global variables and bundling with something such as webpack.
+    $ = jquery;
+
+    var opts = this._overrideDefaulOptions(defaults, options || {});
     this._setOptionsToSelf(opts);
 
     this._$el = $(this.el);
