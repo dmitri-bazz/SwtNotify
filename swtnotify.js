@@ -38,7 +38,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     this._$container = $(this.containerTemplate).css('max-height', this.maxHeight);
 
     //Prevent multi initialization of the container in the same element. THIS NEEDS TESTING
-    this._$el.find(this._$container).remove();
+    this._$el.find('.swt-notify-container').remove();
 
     this.notiId = 0;
     this.notiDict = {};
