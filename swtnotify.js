@@ -35,8 +35,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     this._setOptionsToSelf(opts);
 
     this._$el = $(this.el);
-    var $instance = this._$el.has('.swt-notify-container');
-    if($instance){
+    var $instance = this._$el.find('> .swt-notify-container');
+    if($instance.length > 0){
       this._$container = $instance;
     } else {
       this._$container = $(this.containerTemplate).css('max-height', this.maxHeight);
