@@ -35,10 +35,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     this._setOptionsToSelf(opts);
 
     this._$el = $(this.el);
-    this._$container = $(this.containerTemplate).css('max-height', this.maxHeight);
-
-    //Prevent multi initialization of the container in the same element. THIS NEEDS TESTING
-    this._$el.find('.swt-notify-container').remove();
+    var $instance = this._$el.has('.swt-notify-container');
+    if($instance){
+      this._$container = $instance;
+    } else {
+      this._$container = $(this.containerTemplate).css('max-height', this.maxHeight);
+    }
 
     this.notiId = 0;
     this.notiDict = {};
